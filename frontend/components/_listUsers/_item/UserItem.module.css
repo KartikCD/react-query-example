@@ -1,0 +1,9 @@
+.buttonStyle {
+  box-sizing: border-box;
+  width: 100%;
+  text-align: center;
+  padding: 8px;
+  margin: 8px 0;
+  font-size: 16px;
+  background-color: transparent;
+}

@@ -1,0 +1,83 @@
+######################
+# Operating System
+######################
+# macOS
+.DS_Store
+
+######################
+# IDEs
+######################
+# JetBrains
+.idea/
+*.iml
+*.ipr
+*.iws
+
+######################
+# VS Code
+######################
+.vscode/
+
+######################
+# Vim
+######################
+.vim/
+
+######################
+# Project
+######################
+# Gradle
+.gradle/
+.githooks
+# Logs
+logs/
+*.log
+
+######################
+# Production
+######################
+build/
+out/
+
+######################
+# debug
+######################
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+######################
+# testing
+######################
+/coverage
+
+######################
+# Web
+######################
+.next/
+dist/
+node_modules/
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+
+######################
+# Generated
+######################
+**/src/api/generated
+**/src/graphql/generated
+*.generated.ts
+*.generated.graphql
+*.generated.d.ts
+
+######################
+# vercel
+######################
+.vercel
+
+# typescript
+*.tsbuildinfo

@@ -1,0 +1,16 @@
+.container {
+  margin: 16px 0;
+  width: 100%;
+}
+
+.textStyle {
+  font-size: 30px;
+  font-style: bold;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.detailTextStyle {
+  font-size: 18px;
+  padding: 8px 0;
+}

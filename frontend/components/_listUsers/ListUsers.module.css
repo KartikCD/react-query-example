@@ -1,0 +1,16 @@
+.textStyle {
+  font-size: 24px;
+  font-style: bold;
+  margin-bottom: 16px;
+}
+
+.buttonsContainer {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  grid-gap: 12px;
+}
+
+.container {
+  height: 300px;
+  overflow-y: scroll;
+}

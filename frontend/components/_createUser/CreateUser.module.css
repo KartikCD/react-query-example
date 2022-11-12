@@ -1,0 +1,25 @@
+.fields {
+  width: 100%;
+  padding: 4px;
+  font-size: 16px;
+  margin: 8px 0;
+}
+
+.textStyle {
+  font-size: 24px;
+  font-style: bold;
+  margin-bottom: 16px;
+}
+
+.createButton {
+  padding: 4px;
+  margin: 8px 0;
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}

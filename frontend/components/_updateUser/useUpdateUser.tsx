@@ -6,7 +6,7 @@ import {
   useUpdateUser as useUpdateUserHook,
 } from "../../queries";
 import { User } from "../../types/types";
-import { client } from "../_application/Application";
+import { queryCache } from "../_application/queryCache";
 
 export default function useUpdateUser(id: string) {
   const [user, setUser] = React.useState<User>({
@@ -47,16 +47,8 @@ export default function useUpdateUser(id: string) {
   const onSubmit = React.useCallback(() => {
     updateUser(user, {
       onSuccess: (data) => {
-        const users = client.getQueryData<Array<User>>(["users"]);
-        const index = users?.findIndex((b) => b._id === data._id) as number;
-        if (index === -1) {
-          users?.push(data);
-        } else {
-          users?.splice(index, 1, data);
-          client.setQueriesData(["users", data._id], data);
-        }
-        client.setQueryData(["users"], users);
-        client.invalidateQueries(["users"]);
+        queryCache.updateFragment<User>(data._id, ["users"], data);
+        queryCache.cache.invalidateQueries(["users"]);
       },
     });
   }, [user, updateUser]);
@@ -64,10 +56,7 @@ export default function useUpdateUser(id: string) {
   const onDeleteClick = React.useCallback(() => {
     deleteUser(id, {
       onSuccess: () => {
-        client.removeQueries({
-          queryKey: ["users", id],
-          exact: true,
-        });
+        queryCache.removeFragment(id, ["users"]);
 
         router.replace("/");
       },

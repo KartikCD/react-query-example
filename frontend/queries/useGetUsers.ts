@@ -2,6 +2,7 @@ import { User } from "../types/types";
 import { Users } from "../types/types";
 import httpCommon from "../util/http-common";
 import { useQuery } from "@tanstack/react-query";
+import { queryCache } from "../components/_application/queryCache";
 
 const getUsers = async () => {
   const response = await httpCommon.get<Users>("/users");
@@ -13,8 +14,12 @@ const getUsers = async () => {
 };
 
 export const useGetUsers = () => {
-  return useQuery<Array<User>, Error>({
-    queryKey: ["users"],
-    queryFn: getUsers,
+  return useQuery<Array<User>, Error>(["users"], getUsers, {
+    initialData: () => {
+      const result = queryCache.read<User>(["users"]);
+      console.log("This should execute first.", result);
+      return result;
+    },
+    networkMode: "offlineFirst",
   });
 };

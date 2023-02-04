@@ -1,10 +1,10 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { QueryClientProvider } from "@tanstack/react-query";
 import * as React from "react";
-
-export const client = new QueryClient();
+import { queryCache } from "./queryCache";
 
 export const Application: React.FC<React.PropsWithChildren<{}>> = React.memo(
   ({ children }) => {
+    const client = queryCache.cache;
     return (
       <QueryClientProvider client={client}>{children}</QueryClientProvider>
     );
